@@ -1,0 +1,8 @@
+[package]
+name = "read_to_char_vec_benchmark"
+version = "0.1.0"
+authors = ["hatoo <hato2000@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+ropey = "1.0"
