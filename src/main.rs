@@ -30,8 +30,7 @@ fn bench_to_vec_rayon(b: &mut test::Bencher) {
     b.iter(move || {
         let s = fs::read_to_string(PATH).unwrap();
         let _buf: Vec<Vec<char>> = s
-            .lines()
-            .collect::<Vec<_>>()
+            .par_lines()
             .into_par_iter()
             .map(|l| l.trim_end().chars().collect())
             .collect();
