@@ -54,10 +54,9 @@ fn bench_to_vec_read_line(b: &mut test::Bencher) {
 }
 
 #[bench]
-fn bench_read_to_string_and_ropey(b: &mut test::Bencher) {
+fn bench_load_ropey(b: &mut test::Bencher) {
     b.iter(move || {
-        let s = fs::read_to_string(PATH).unwrap();
-        ropey::Rope::from(s);
+        ropey::Rope::from_reader(fs::File::open(PATH).unwrap()).unwrap();
     });
 }
 
